@@ -1,0 +1,354 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Tandem Repeat Solenoids Geometry’s documentation! &#8212; Tandem Repeat Solenoids Geometry 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Tandem Repeat Solenoids Geometry 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-tandem-repeat-solenoids-geometry-s-documentation">
+<h1>Welcome to Tandem Repeat Solenoids Geometry’s documentation!<a class="headerlink" href="#welcome-to-tandem-repeat-solenoids-geometry-s-documentation" title="Permalink to this headline">¶</a></h1>
+<h3>Solenoids and the project aim:</h3>
+Solenoids are a set of proteins structures that contain a superhelical arrangement of repeating structural units. The project aim is to analize those structures by calculating some geometrical parameters
+common to each solenoid. In particular the project provides codes to calculate: the handedness of each unit, the twist angle between a unit and the next one, the curvature and pitch angle between vector 
+connecting consecutive units. The following paragraphs describe the algorithm approach used to calculate each one of the parameters. 
+
+<h3>Handedness</h3>
+
+In order to understand the handedness of a unit the algorithm uses the cross product, which can be understood with the right-hand rule. Given two vectors, a and b, the cross product gives a third 
+vector axb whose orientation is related to the orientation of the first two: if b is on the left of a then axb points upward, if b is on the right of a then axb points downward.
+<br />
+<img style="width: 50%" src="_static/rhr.png"/>
+<br />
+In an ideal situation a and b lie on the xy plane and axb lies on the z axis. In this framework the handedness can be defined by the sign of the z component of axb: if it’s positive (i.e. 
+axb pointing upward) then the unit is right-handed, if it’s negative (i.e. axb pointing downward) then it’s left-handed. In our situation the vectors are given in an arbitrary coordinate system 
+and the z component of axb should not be trusted as a discriminant for handedness. Therefore we need to choose properly a coordinate system which is suitable for our purpose and, by a transformation matrix, 
+to express all the vectors with the new basis. 
+<br />
+The algorithm follows the following steps for each unit: 
+<ol>
+<li>We calculate two vectors: one from the center of mass to the first alpha carbon; the second from the center of mass to the second alpha carbon.</li>
+<li>We define a new 3D coordinate system. The x-axis is the vector from the center of mass to the first alpha carbon. The z-axis is the vector from the center of mass of the unit to the center of mass
+of the next unit (for the last unit we take the vector from the center of mass to the previous one and calculate the inverse). Finally the y-axis is the cross product of z-axis and x-axis.</li>
+<li>We calculate the transformation matrix in order to get the two vectors in the new coordinate system.</li>
+<li>We calculate the cross product of the vectors in the new coordinate system.</li>
+<li>Finally if the third component of the cross product is positive the unit will be right-handed otherwise it will be left-handed.</li>
+</ol>
+
+<h3>Twist</h3>
+
+In order to calculate the twist angle between consecutive units we define two planes using three points for each one. We then calculate the dihedral angle between those two planes. 
+<br />
+The algorithm follows the following steps:
+<ol>
+<li>We identify four points in the space: the first alpha carbon of the previuos unit; the center of mass of the previous unit; the center of mass of the unit; and the first alpha carbon of the 
+unit.</li>
+<li>We use a function from the Biopython library that calculates the angle between two planes, called dihedral angle. The first plane is identified by: the previous unit first alpha carbon, 
+the previous unit center of mass, the unit center of mass. The second plane is identified by: the previous unit center of mass, the unit center of mass, the unit first alpha carbon.</li>
+</ol>
+
+<h3>Curvature and Pitch</h3>
+We choose to calculate the curvature and pitch angle in the same function becouse the first steps of the algorithm are identical.
+<br />
+The algorithm steps are:
+<ol>
+<li>In order to have a space where we can compare the vectors of interest we define a coordinate system. The axis x is from the unit center of mass to the last alpha carbon of that unit. 
+The axis z is from the next unit last alpha carbon and the last alpha carbon of current unit. The axis y is the cross product between the two axis defined as described above.</li>
+<li>We define a transformation matrix in order to translate the two vectors in the new coordinate system.</li>
+<li>We then calculate the vector that compared with different axis of the coordinate system described above, gives us the curvature and the pitch angles. The vector is from the next unit last alpha 
+carbon to the following unit last alpha carbon.</li>
+<li>We translate the vector defined above and the two axis (x and z) in the new coordinate system.</li>
+<li>We calculate the angles. The curvature is the angle between the vector defined at step 3 and the axis z. The pitch is the angle between the vector of step 3 and the axis x minus the angle between the axis x and axis z.</li>
+</ol>
+<br />
+We can observe an example of curvature and pitch in the following images:
+<br /><br />
+<img style="width: 75%" src="_static/curvature.png"/>
+<br /><br />
+<img style="width: 75%" src="_static/pitch.png"/>
+
+<h3>How to install and usage example</h3>
+In order to install the project, open a terminal and do the following:
+<br /><br />
+# cd /path/to/setup.py
+<br /><br />
+# pip install . OR # python setup.py install
+<br /><br />
+Then by typing the command trsolenoidsgeo we get the list of commands. A possible usage is:
+<br /><br />
+# centerofmass /path/to/pdb/file /path/to/db/file /path/to/the/output/folder
+<br /><br />
+IMPORTANT: When you change the pdb and db files, be sure that the output folder is empty 
+
+
+<h3>Contents:</h3>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-DrawOnPymol"></span><dl class="class">
+<dt id="DrawOnPymol.DrawOnPymol">
+<em class="property">class </em><code class="descclassname">DrawOnPymol.</code><code class="descname">DrawOnPymol</code><a class="headerlink" href="#DrawOnPymol.DrawOnPymol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class used to interact with the pymol software</p>
+<dl class="method">
+<dt id="DrawOnPymol.DrawOnPymol.draw_center_of_mass">
+<code class="descname">draw_center_of_mass</code><span class="sig-paren">(</span><em>centers</em><span class="sig-paren">)</span><a class="headerlink" href="#DrawOnPymol.DrawOnPymol.draw_center_of_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw the center of mass of each unit
+:param centers: a dictionary containing the coordinates for each center of mass
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DrawOnPymol.DrawOnPymol.draw_distances_com">
+<code class="descname">draw_distances_com</code><span class="sig-paren">(</span><em>centers</em><span class="sig-paren">)</span><a class="headerlink" href="#DrawOnPymol.DrawOnPymol.draw_distances_com" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw the distances vectors between centers of mass
+:param centers: a dictionary containing the coordinates for each center of mass
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DrawOnPymol.DrawOnPymol.draw_units">
+<code class="descname">draw_units</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DrawOnPymol.DrawOnPymol.draw_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw each unit in the pymol software
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DrawOnPymol.DrawOnPymol.draw_vector">
+<code class="descname">draw_vector</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>axis=False</em><span class="sig-paren">)</span><a class="headerlink" href="#DrawOnPymol.DrawOnPymol.draw_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a vector between the two points x and y represented by two numpy arrays
+:param x: the first point
+:param y: the second point
+:param axis: indicate if the vector is a plane axis or not
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DrawOnPymol.DrawOnPymol.start_pymol">
+<code class="descname">start_pymol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DrawOnPymol.DrawOnPymol.start_pymol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a session in pymol
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-ProteinGeometry"></span><dl class="class">
+<dt id="ProteinGeometry.ProteinGeometry">
+<em class="property">class </em><code class="descclassname">ProteinGeometry.</code><code class="descname">ProteinGeometry</code><a class="headerlink" href="#ProteinGeometry.ProteinGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class used to calculate all the geometric parameters on the units</p>
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.calculate_angle">
+<code class="descname">calculate_angle</code><span class="sig-paren">(</span><em>vector0</em>, <em>vector1</em><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.calculate_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the angle between two vectors
+:param vector0: the first vector
+:param vector1: the second vector
+:return: the angle in degree</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.calculate_center_of_mass">
+<code class="descname">calculate_center_of_mass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.calculate_center_of_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the center of mass for each unit
+:return: a dictionary containing the centers of mass</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.calculate_curvature_and_pitch">
+<code class="descname">calculate_curvature_and_pitch</code><span class="sig-paren">(</span><em>centers</em><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.calculate_curvature_and_pitch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the curvature and the pitch of a unit compared with the previous one
+:param centers: the dictionary containing the centers of mass
+:return: two dictionaries containing one the curvature and the other the pitch angles in degrees</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.calculate_distance">
+<code class="descname">calculate_distance</code><span class="sig-paren">(</span><em>first_point</em>, <em>second_point</em><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.calculate_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the distance between two point
+:param first_point: the first point
+:param second_point: the second point
+:return: an integer which is the distance calculated between the two points</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.calculate_distances">
+<code class="descname">calculate_distances</code><span class="sig-paren">(</span><em>centers</em><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.calculate_distances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the distances between each alfa carbon and the center of mass
+:param centers: the dictionary of the centers of mass
+:return: a dictionary containg lists, each list contains the distances calculated</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.calculate_handedness">
+<code class="descname">calculate_handedness</code><span class="sig-paren">(</span><em>centers</em><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.calculate_handedness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the handedness (L or R) for each unit
+:param centers: the dictionary containing the centers of mass
+:return: return a dictionary. dict[unit] = handedness</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.calculate_twist">
+<code class="descname">calculate_twist</code><span class="sig-paren">(</span><em>centers</em><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.calculate_twist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the rotation between units
+:param centers: the dictionary containing the center of mass
+:return: a dictionary. dict[unit] = (angle, unit from)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.center_of_mass_distances">
+<code class="descname">center_of_mass_distances</code><span class="sig-paren">(</span><em>centers</em><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.center_of_mass_distances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate all the distances between the centers of mass
+:param centers: a dictionary containing the centers of mass
+:return: a dictionary containing tuples that represents the distances between centers of mass</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.init_pymol">
+<code class="descname">init_pymol</code><span class="sig-paren">(</span><em>canvas</em><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.init_pymol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic method used to initialize a pymol istance in order to draw the results
+:param canvas: the istance of object DrawOnPymol
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.normalize_vector">
+<code class="descname">normalize_vector</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.normalize_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize a vector
+:param vector: the vector to be normalized
+:return: the normalized vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.open_directory">
+<code class="descname">open_directory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.open_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic method used to retrieve a sorted list of the files in output directory
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ProteinGeometry.ProteinGeometry.select_atom">
+<code class="descname">select_atom</code><span class="sig-paren">(</span><em>id</em>, <em>structure</em><span class="sig-paren">)</span><a class="headerlink" href="#ProteinGeometry.ProteinGeometry.select_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Isolate the atoms equal to the atom passed as argument
+:param id: the atom to be isolated
+:param structure: the structure to be changed
+:return: a list of the atom equal to the amot passed as argument</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-RDBModule"></span><dl class="class">
+<dt id="RDBModule.RDBParser">
+<em class="property">class </em><code class="descclassname">RDBModule.</code><code class="descname">RDBParser</code><a class="headerlink" href="#RDBModule.RDBParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a RepeatsDB file parsed</p>
+<dl class="method">
+<dt id="RDBModule.RDBParser.parse_rdb">
+<code class="descname">parse_rdb</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#RDBModule.RDBParser.parse_rdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a RepeatsDB file
+:param filename: the file source
+:return: RDBParser object</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-UnitSelection"></span><dl class="class">
+<dt id="UnitSelection.UnitSelection">
+<em class="property">class </em><code class="descclassname">UnitSelection.</code><code class="descname">UnitSelection</code><span class="sig-paren">(</span><em>start_r</em>, <em>end_r</em><span class="sig-paren">)</span><a class="headerlink" href="#UnitSelection.UnitSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class used to select a unit starting at start_r and finishing at end_r</p>
+<dl class="method">
+<dt id="UnitSelection.UnitSelection.accept_residue">
+<code class="descname">accept_residue</code><span class="sig-paren">(</span><em>residue</em><span class="sig-paren">)</span><a class="headerlink" href="#UnitSelection.UnitSelection.accept_residue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select only the residue in the interval
+:param residue: the residue
+:return: True if the residue is in the interval, false otherwise</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to Tandem Repeat Solenoids Geometry’s documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Tandem Repeat Solenoids Geometry 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Umberto Andria.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

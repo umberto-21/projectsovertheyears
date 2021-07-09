@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:gravity="center">
+
+    <include layout="@layout/grid_layout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/position_ship_alert"
+        android:id="@+id/shipPositionAlert"
+        android:layout_marginTop="20dp"
+        android:focusable="false"
+        android:layout_marginBottom="10dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/startShipLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_ship_alert"
+            android:id="@+id/numberShipsAlert"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:id="@+id/numberShips"
+            android:textSize="28sp"
+            android:layout_marginRight="50dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ship_width"
+        android:gravity="center"
+        android:id="@+id/shipLayout">
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/reverseShipButton"
+            android:src="@drawable/rotate"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/accessibility_reverse_button"
+            android:onClick="reverseShip"
+            android:layout_marginRight="50dp" />
+
+        <ImageView
+            android:layout_width="@dimen/ship_width"
+            android:layout_height="@dimen/cell_side"
+            android:id="@+id/shipView"
+            android:contentDescription="@string/accessibility_ship_view"
+            android:src="@drawable/ship_h" />
+
+    </LinearLayout>
+
+</LinearLayout>

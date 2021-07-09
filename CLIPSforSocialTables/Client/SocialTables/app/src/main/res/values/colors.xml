@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00695C</color>
+    <color name="colorAccent">#004D40</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="background_app">#FFFFFF</color>
+    <color name="background_button">#64B5F6</color>
+
+    <color name="my_ship_sane">#5dff40</color>
+    <color name="my_ship_hit">#ff0000</color>
+    <color name="my_ship_sink">#af8806</color>
+    <color name="water">#0786fd</color>
+    <color name="enemy_ship_hit">#ff0000</color>
+    <color name="enemy_ship_sink">#af8806</color>
+
+</resources>

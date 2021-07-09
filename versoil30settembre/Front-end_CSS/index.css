@@ -1,0 +1,54 @@
+body, html {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    height: 100%
+}
+
+.bgimg {
+    background-color: rgb(227,20,126) !important;
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+#myCountdown {
+    font-weight: bold;
+    color: rgb(97, 198, 240) !important;
+}
+
+#topleft {
+    line-height: 40px !important;
+    font-size: 30px;
+    color: rgb(97, 198, 240) !important;
+}
+
+#bottomright {
+    font-size: 500%;
+    color: rgb(97, 198, 240) !important;
+}
+
+@media (max-width: 1024px) {
+    #bottomright {
+        font-size: 200%;
+    }
+
+    #topleft {
+        line-height: 23px !important;
+        font-size: 18px;
+    }
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+    color: rgb(97, 198, 240) !important;
+    text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+.flipText {
+    -webkit-transform:rotate(-180deg);
+    -moz-transform:rotate(-180deg);
+    -o-transform:rotate(-180deg);
+    transform:rotate(-180deg);
+}
+

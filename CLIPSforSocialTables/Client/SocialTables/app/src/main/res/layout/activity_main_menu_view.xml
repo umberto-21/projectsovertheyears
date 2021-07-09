@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app"
+    tools:context="digitalsloths.socialtables.basefunctions.presenter.MainMenuPresenterImpl"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:id="@+id/logoView"
+        android:src="@drawable/logo_social_tables"
+        android:contentDescription="@string/accessibility_logo" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:layout_width="175dp"
+            android:layout_height="150dp"
+            android:id="@+id/gamesMenuButton"
+            android:src="@drawable/games_icon"
+            android:scaleType="fitCenter"
+            android:background="@color/white"
+            android:contentDescription="@string/accessibility_games_button"
+            android:adjustViewBounds="false"
+            android:onClick="loadGamesManager" />
+
+        <ImageButton
+            android:layout_width="175dp"
+            android:layout_height="150dp"
+            android:id="@+id/profileMenuButton"
+            android:src="@drawable/profile_icon"
+            android:scaleType="fitCenter"
+            android:background="@color/white"
+            android:contentDescription="@string/accessibility_profile_button"
+            android:onClick="loadProfileManager" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="@string/games_button_text"
+            android:id="@+id/textGamesButton"
+            android:textSize="@dimen/button_text_size"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_button_text"
+            android:id="@+id/textProfileButton"
+            android:textSize="@dimen/button_text_size"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:layout_width="175dp"
+            android:layout_height="150dp"
+            android:id="@+id/chatMenuButton"
+            android:src="@drawable/chat_icon"
+            android:scaleType="fitCenter"
+            android:background="@color/white"
+            android:contentDescription="@string/accessibility_chat_button"
+            android:onClick="loadChatManager" />
+
+        <ImageButton
+            android:layout_width="175dp"
+            android:layout_height="150dp"
+            android:id="@+id/noticeMenuButton"
+            android:src="@drawable/noticeboard_icon"
+            android:scaleType="fitCenter"
+            android:background="@color/white"
+            android:contentDescription="@string/accessibility_notice_button"
+            android:onClick="loadNoticeBoardManager" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="@string/chat_button_text"
+            android:id="@+id/textChatButton"
+            android:textSize="@dimen/button_text_size"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="@string/board_button_text"
+            android:id="@+id/textNoticeButton"
+            android:textSize="@dimen/button_text_size"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

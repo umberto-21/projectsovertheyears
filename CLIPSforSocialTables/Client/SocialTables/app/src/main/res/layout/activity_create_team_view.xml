@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:id="@+id/alertNoTeamImage"
+            android:contentDescription="@string/accessibility_surprise_team"
+            android:scaleType="fitCenter"
+            android:src="@drawable/surprise"/>
+
+        <TextView
+            android:layout_width="225dp"
+            android:layout_height="fill_parent"
+            android:text="@string/team_absence_alert"
+            android:id="@+id/alertNoTeam"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/alertNameTeam"
+        android:layout_gravity="top|center"
+        android:enabled="true"
+        android:focusable="false"
+        android:textSize="30sp"
+        android:textIsSelectable="true"
+        android:textAlignment="center"
+        android:textStyle="normal"
+        android:text="@string/enter_team_name_box"
+        android:layout_marginTop="50dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:id="@+id/inputTeamName"
+        android:inputType="text"
+        android:focusable="true"
+        android:textSize="30sp"
+        android:textAlignment="center" />
+
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:text="@string/confirm_button"
+        android:id="@+id/okButton"
+        android:layout_gravity="center_horizontal|bottom"
+        android:textSize="24sp"
+        android:clickable="true"
+        android:enabled="true"
+        android:focusable="true"
+        android:background="@drawable/custom_button"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white" />
+
+</LinearLayout>

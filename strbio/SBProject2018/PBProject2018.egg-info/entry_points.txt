@@ -1,0 +1,11 @@
+[console_scripts]
+centerofmass = Project2018.Commands:centerofmass
+curvatureandpitch = Project2018.Commands:curvatureandpitch
+distances_ca = Project2018.Commands:distances_ca
+distances_com = Project2018.Commands:distances_com
+handedness = Project2018.Commands:handedness
+rwfiles = Project2018.Commands:rwfiles
+start_pymol = Project2018.Commands:start_pymol
+trsolenoidsgeo = Project2018.Commands:trsolenoidsgeo
+twist = Project2018.Commands:twist
+

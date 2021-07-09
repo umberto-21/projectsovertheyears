@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:padding="10dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/teamRoleImage"
+        android:layout_marginRight="50dp"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="50dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="name_member"
+        android:id="@+id/memberText"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        android:layout_marginRight="50sp"
+        android:ellipsize="end"
+        android:maxLines="1" />
+
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/deleteMemberButton"
+        android:src="@drawable/delete"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent" />
+
+</LinearLayout>

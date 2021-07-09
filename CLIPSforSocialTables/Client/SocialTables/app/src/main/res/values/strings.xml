@@ -1,0 +1,96 @@
+<resources>
+    <string name="app_name">CLIPS for SocialTables</string>
+
+    <string name="beacon_service">EnviromentServiceModel</string>
+    <string name="error_view">Error</string>
+
+    <string name="profile_view">Profile</string>
+    <string name="game_list_view">Games List</string>
+
+    <string name="create_team_view">Create Team</string>
+    <string name="join_team_view">Join Team</string>
+    <string name="team_management_view">Team Management</string>
+
+    <string name="main_battleship_view">Main Battleship Menu</string>
+    <string name="waiting_for_view">WaitingForPlay</string>
+
+    <string name="select_ship_view">Select ShipPosition</string>
+    <string name="enemy_attack_phase_view">Enemy Attack Phase</string>
+    <string name="waiting_opponent_view">Waiting Opponent</string>
+    <string name="final_score_view">Final Score</string>
+
+    <string name="leaderboard_view">Leaderboard</string>
+
+    <string name="accessibility_logo">TheSocialTable Logo</string>
+    <string name="accessibility_games_button">TheSocialTable Logo</string>
+    <string name="accessibility_profile_button">TheSocialTable Logo</string>
+    <string name="accessibility_chat_button">TheSocialTable Logo</string>
+    <string name="accessibility_notice_button">TheSocialTable Logo</string>
+    <string name="accessibility_start_button">Start Battleship button</string>
+    <string name="accessibility_leaderboard_button"> leaderboard button</string>
+    <string name="accessibility_surprise_team">Surprise Face</string>
+    <string name="accessibility_profile_management">Profile icon</string>
+    <string name="accessibility_ship_view">View of a ship</string>
+    <string name="accessibility_reverse_button">Reverse ship button</string>
+
+    <string name="games_button_text">Games</string>
+    <string name="chat_button_text">Chat</string>
+    <string name="board_button_text">Notice Board</string>
+    <string name="profile_button_text">Profile</string>
+
+    <string name="confirm_button">Confirm</string>
+
+    <string name="profile_alert">Profile management</string>
+    <string name="profile_actual_alert">Your current username is: </string>
+    <string name="profile_actual_default">User123</string>
+    <string name="profile_change_alert">If you want to change it, please insert your new username here.</string>
+    <string name="profile_edit_text">New username</string>
+    <string name="edit_profile_button">Edit username</string>
+
+    <string name="game_list_alert">Select the game you wish to play:</string>
+    <string name="game_list_item">Item icon</string>
+
+    <string name="team_absence_alert">There isn\'t a team for your table, create a new one!</string>
+    <string name="enter_team_name_box">Enter your team name: </string>
+
+    <string name="join_team_alert">There is already a team for this table, you want to join?</string>
+    <string name="yes_button">YES</string>
+    <string name="no_button">NO</string>
+
+    <string name="choose_role_alert">Choose your role inside the team...</string>
+    <string name="choose_captain_button">Captain</string>
+    <string name="choose_sailor_button">Sailor</string>
+    <string name="information_role_alert">As Captain you can management your own team, but there can be just one per team!</string>
+
+    <string name="team_management_alert">Team</string>
+    <string name="play_button_text">Start battle!</string>
+
+    <string name="main_battleship_alert">Welcome to Battleship game!</string>
+    <string name="main_battleship_subtitle">Start play now or view the leaderboard.</string>
+    <string name="start_battleship_button">Start fight!</string>
+    <string name="view_leaderboard_button">Leaderboard</string>
+
+    <string name="searching_opponent_alert">Looking for an opponent.. please wait...</string>
+    <string name="waiting_play_alert">The game is starting.. please wait...</string>
+    <string name="cancel_search_button">Cancel</string>
+
+    <string name="leaderboard_alert">Leaderboard</string>
+    <string name="choose_game_alert">please, choose a game: </string>
+
+    <string name="position_ship_alert">Place your ships, tap a cell...</string>
+    <string name="number_ship_alert">Ships to be placed left: </string>
+
+    <string name="attack_phase_alert">Is your team turn to play...</string>
+    <string name="attack_alert">Please, tap the cell where you want to shoot at... </string>
+    <string name="info_shoot_alert">Shoot left:</string>
+
+    <string name="enemy_attack_phase_alert">It\'s your enemy turn!</string>
+    <string name="left_game_button">Left game</string>
+
+    <string name="end_match_alert">The match is over!!</string>
+    <string name="score_end_match_alert">Your team score:</string>
+    <string name="score_opponent_end_match_alert">Your opponent score:</string>
+    <string name="rematch_button">Rematch!!</string>
+    <string name="back_menu_button">Main Menu</string>
+
+</resources>

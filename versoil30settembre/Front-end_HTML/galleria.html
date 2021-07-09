@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A web site for the incoming event of the 30th of September
+      in Castelfranco Veneto">
+    <meta name="author" content="Umberto Andria">
+
+    <link rel="icon" href="../uploads/pp.jpg"> <!-- todo -->
+
+    <title>SottoSopra</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Social icons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../Front-end_CSS/home.css" />
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../Front-end_JS/modal.js"></script>
+
+</head>
+<body id="myPage" class="myPageBlue">
+
+<!-- Navigation bar -->
+<nav class="blueNavbar navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="yellowNavbarToogle navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="flipText yellowNavbar-brand navbar-brand" href="../index.html">SOTTOSOPRA</a>
+        </div>
+        <div class="blueNavbar-nav collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="navbarLink flipText" href="info.html#eventInfo">INFO</a></li>
+                <li><a class="navbarLink flipText active" href="galleria.html">GALLERIA</a></li>
+                <li><a class="navbarLink flipText" href="programma.html">PROGRAMMA</a></li>
+                <li><a class="navbarLink flipText" href="ospiti.html">OSPITI</a></li>
+                <li><a class="navbarLink flipText" href="sponsor.html">SPONSOR</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <!-- First row of Images -->
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/graphics_0.jpg" alt="Le fantastiche grafiche di Otium !!!">
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/graphics_1.jpg" alt="Le fantastiche grafiche di Otium !!!">
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/graphics_2.jpg" alt="Le fantastiche grafiche di Otium !!!">
+        </div>
+    </div>
+
+    <!-- Second row of Images -->
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/graphics_3.jpg" alt="libreria mondadori
+                sarà sottosopra con lahar magazine, twenty cent art group, catia schievano e federica
+                monaco (live painting)" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/graphics_4.jpg" alt="libreria
+                ubik sara' sottosopra con l'esibizione dei ragazzi del collettivo covotrentasette
+                - kelly watch the stars" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/fausto_de_stefani.jpg" alt="ha scalato tutti
+                gli ottomila metri del pianeta e da anni si dedica ai bambini del mondo: l'alpinista,
+                scrittore e fotografo fausto de stefani a sottosopra con monologo sulla libertà" />
+        </div>
+    </div>
+
+    <!-- Third row of Images -->
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/pentagramma.jpg" alt="pentagramma sara'
+            sottosopra con pianoforte sospeso - open day pentagramma" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/lello_voce.jpg" alt="lello voce, pioniere della poetry
+             slam in italia, e frank nemola, trombettista di vasco rossi, saranno sottosopra con lo spettacolo di
+             spoken music 'il fiore inverso'" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/rythmico_abbigliamento.jpg" alt="rythmico abbigliamento sara'
+            sottosopra con dei giovani artisti locali - jam session sottosopra'" />
+        </div>
+    </div>
+
+    <!-- Fourth row of Images -->
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/populous.jpg" alt="AVREMO IL PIACERE DI AVERE CON NOI
+            POPULOUS, A FARCI A BALLARE TUTTI INSIEME PER CHIUDERE LA GIORNATA!" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/binario.jpg" alt="binario nove e trequarti sara'
+            sottosopra con tabletop - un pomeriggio di giochi da tavolo" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../uploads/natalino_balasso.jpg" alt="Siamo orgogliosi di
+            annunciare Natalino Balasso, che sarà con noi sabato 30 settembre alle ore 20.30, nel Cortile del
+            Conservatorio Steffani Castelfranco Veneto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara01.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara02.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara03.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara04.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara05.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara06.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara07.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara08.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara09.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara10.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara11.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara12.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara13.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara14.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara15.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara16.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara17.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara18.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara19.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara20.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara21.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara22.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara23.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara24.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara25.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara26.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara27.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara28.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara29.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara30.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara31.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara32.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara33.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara34.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara35.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara36.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara37.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara38.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara39.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara40.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara41.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara42.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <div class="row myGallery">
+        <div class="col-md-4">
+            <img onclick="openModal(this);" src="../FotoSara/FotoSara/sara43.jpg" alt="Foto di Sara Furlanetto" />
+        </div>
+    </div>
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img0" onclick="closeModal();">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption" class="flipText"></div>
+    </div>
+
+</div>
+
+<div id="instafeed"></div>
+
+<!-- Footer section -->
+<footer class="footer blueFooter text-center">
+    <div class="socialButtons">
+        <a class="fa fa-facebook" href="https://www.facebook.com/events/168435840399118"></a>
+        <a href="https://www.instagram.com/sottosopracastelfranco/" class="fa fa-instagram"></a>
+        <a href="https://twitter.com/sottosopracast?s=08" class="fa fa-twitter"></a> <!-- todo -->
+    </div>
+
+    <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+
+    <div class="credits">
+        <p>Grafica: <span>Damiano Fraccaro - Otium</span> Codice: <span>Umberto Andria</span></p>
+    </div>
+</footer>
+
+</body>
+</html>

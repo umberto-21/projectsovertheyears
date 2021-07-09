@@ -1,0 +1,95 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+#Utility
+GET     /utility/resetDB                    utility.DataBase.resetDB()
+
+GET     /utility/seeAll                    utility.DataBase.seeAll()
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/var/www/html/", file: Asset)
+
+GET		/api/helloworld/:id			controllers.Application.helloWorld(id: String)
+
+#Microservice Session
+
+GET		/session/startNewSession			            microservices.session.communication.SessionCommunicationImpl.createNewSession()
+
+GET		/session/destroySession/:session			    microservices.session.communication.SessionCommunicationImpl.destroySession(session: String)
+
+GET		/session/updateLastAccess/:session			    microservices.session.communication.SessionCommunicationImpl.updateLastAccess(session: String)
+
+#Microservice Profile
+
+GET		/profile/getProfile/:session/:beacon   	        microservices.profile.communication.ProfileCommunicationImpl.getProfile(session: String, beacon: String)
+
+GET		/profile/changeProfile/:session/:profile   	    microservices.profile.communication.ProfileCommunicationImpl.changeProfile(session: String, profile: String)
+
+GET		/profile/updateLocation/:session/:beacon   	    microservices.profile.communication.ProfileCommunicationImpl.updateLocation(session: String, beacon: String)
+
+#Microservice Battleship
+
+GET     /battleship/isTeamExist/:beacon                             microservices.battleship.communication.BattleshipCommunicationImpl.isTeamExists(beacon : String)
+
+GET     /battleship/isBattleRunning/:beacon                         microservices.battleship.communication.BattleshipCommunicationImpl.isBattleRunning(beacon : String)
+
+GET     /battleship/createTeam/:session/:teamName/:beacon           microservices.battleship.communication.BattleshipCommunicationImpl.createTeam(session : String, teamName : String, beacon : String)
+
+GET     /battleship/getTeam/:session                                microservices.battleship.communication.BattleshipCommunicationImpl.getTeam(session : String)
+
+#GET     /battleship/isTeamChange/:session                           microservices.battleship.communication.BattleshipCommunicationImpl.isTeamChange(session : String)
+
+GET		/battleship/removeTeamMember/:session/:profile              microservices.battleship.communication.BattleshipCommunicationImpl.removeTeamMember(session: String, profile: String)
+
+GET     /battleship/leaveTeam/:session                              microservices.battleship.communication.BattleshipCommunicationImpl.leaveTeam(session : String)
+
+GET     /battleship/joinTeam/:session/:beacon                       microservices.battleship.communication.BattleshipCommunicationImpl.joinTeam(session : String, beacon : String)
+
+GET     /battleship/startSearchingOpponent/:session                 microservices.battleship.communication.BattleshipCommunicationImpl.startSearchingOpponent(session : String)
+
+GET     /battleship/isStartSearchingOpponent/:session    microservices.battleship.communication.BattleshipCommunicationImpl.isStartSearchingOpponent(session : String)
+
+GET     /battleship/stopSearchingOpponent/:session                  microservices.battleship.communication.BattleshipCommunicationImpl.stopSearchingOpponent(session : String)
+
+GET     /battleship/isStartBattle/:session                 microservices.battleship.communication.BattleshipCommunicationImpl.isStartBattle(session : String)
+
+#GET     /battleship/startBattle/:session                            microservices.battleship.communication.BattleshipCommunicationImpl.startBattle(session : String)
+
+GET     /battleship/isCaptain/:session                              microservices.battleship.communication.BattleshipCommunicationImpl.isCaptain(session : String)
+
+GET     /battleship/isStopSearchingOpponent/:session      microservices.battleship.communication.BattleshipCommunicationImpl.isStopSearchingOpponent(session : String)
+
+GET     /battleship/getShipsToPositioning/:session                  microservices.battleship.communication.BattleshipCommunicationImpl.getShipsToPositioning(session : String)
+
+GET     /battleship/getTeamShips/:session                           microservices.battleship.communication.BattleshipCommunicationImpl.getTeamShips(session : String)
+
+GET     /battleship/setShipPosition/:session/:ship                  microservices.battleship.communication.BattleshipCommunicationImpl.setShipPosition(session : String, ship : String)
+
+GET     /battleship/isTeamShipsPosition/:session             microservices.battleship.communication.BattleshipCommunicationImpl.isTeamShipsPosition(session : String)
+
+GET     /battleship/isStartAttackPhase/:session                          microservices.battleship.communication.BattleshipCommunicationImpl.isStartAttackPhase(session : String)
+
+GET     /battleship/isStartEnemyAttackPhase/:session                microservices.battleship.communication.BattleshipCommunicationImpl.isStartEnemyAttackPhase(session : String)
+
+GET     /battleship/getAllayField/:session                          microservices.battleship.communication.BattleshipCommunicationImpl.getAllayField(session : String)
+
+GET     /battleship/getEnemyField/:session                          microservices.battleship.communication.BattleshipCommunicationImpl.getEnemyField(session : String)
+
+GET     /battleship/isStartBattle/:session     microservices.battleship.communication.BattleshipCommunicationImpl.isStartBattle(session: String)
+
+GET     /battleship/sendShot/:session/:shot      microservices.battleship.communication.BattleshipCommunicationImpl.sendShot(session: String, shot: String)
+
+GET     /battleship/isBattleEnd/:session                         microservices.battleship.communication.BattleshipCommunicationImpl.isBattleEnd(session : String)
+
+GET     /battleship/getShotNumber/:session                microservices.battleship.communication.BattleshipCommunicationImpl.getShotNumber(session : String)
+
+GET     /battleship/getBattleFinalScore/:session                  microservices.battleship.communication.BattleshipCommunicationImpl.getBattleFinalScore(session : String)
