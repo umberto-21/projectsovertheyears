@@ -1,2 +1,2 @@
 # projectsovertheyears
-Repository containing the most relevant projects done over the years by me
+Repository containing the most relevant projects done by me over the years
